@@ -25,9 +25,6 @@ let page = 1;
 let maxPage = 0;
 const pageSize = 40;
 
-const BASE_URL = 'https://pixabay.com/api';
-const API_KEY = '41870399-9b44301246ceb98c07efd626a';
-
 searchForm.addEventListener('submit', handleSearch);
 
 async function handleSearch(event) {
@@ -85,6 +82,9 @@ async function handleSearch(event) {
 }
 
 async function getPhotos(value, page = 1) {
+  const BASE_URL = 'https://pixabay.com/api';
+  const API_KEY = '41870399-9b44301246ceb98c07efd626a';
+  
   try {
     const response = await axios.get(`${BASE_URL}/`, {
       params: {
@@ -93,7 +93,7 @@ async function getPhotos(value, page = 1) {
         image_type: 'photo',
         orientation: 'horizontal',
         safesearch: 'true',
-        per_page: pageSize,
+        per_page: 15,
         page,
       },
     });
