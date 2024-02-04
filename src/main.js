@@ -23,7 +23,7 @@ const hiddenClass = 'is-hidden';
 let query = '';
 let page = 1;
 let maxPage = 0;
-const pageSize = 40;
+const pageSize = 15;
 
 searchForm.addEventListener('submit', handleSearch);
 
@@ -35,6 +35,8 @@ async function handleSearch(event) {
   loader.classList.remove(hiddenClass);
 
   page = 1;
+
+  loadMoreBtn.classList.add(hiddenClass);
 
   const form = event.currentTarget;
   query = form.elements.query.value.trim();
